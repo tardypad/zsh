@@ -66,14 +66,14 @@ forwardword(char **args)
 
 /*
  * class of character (for vi-mode word motion)
- * 0: blank,  1: alnum or _,  2: punctuation,  3: the others
+ * 0: blank,  1: alnum,  2: punctuation,  3: the others
  */
 
 /**/
 int
 wordclass(ZLE_CHAR_T x)
 {
-    return (ZC_iblank(x) ? 0 : ((ZC_ialnum(x) || (ZWC('_') == x)) ? 1 :
+    return (ZC_iblank(x) ? 0 : (ZC_ialnum(x) ? 1 :
 		ZC_ipunct(x) ? 2 : 3));
 }
 
